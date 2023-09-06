@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="SuperHeroes" customModuleProvider="target">
             <connections>
+                <outlet property="continueButton" destination="sKz-xN-o6L" id="vOX-1z-2KO"/>
+                <outlet property="passwordText" destination="qHn-7V-ocW" id="Lig-Th-i4F"/>
+                <outlet property="userNameText" destination="6OI-YI-XMH" id="yl1-py-Ywu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -51,6 +54,9 @@
                             <buttonConfiguration key="configuration" style="filled" title="Continuar">
                                 <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="0.0"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="continueAction:" destination="-1" eventType="touchUpInside" id="Bjh-i3-1Eg"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

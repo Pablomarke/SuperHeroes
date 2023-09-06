@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3916121D2AA85E5400760059 /* HeroesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916121B2AA85E5400760059 /* HeroesListTableViewController.swift */; };
+		3916121E2AA85E5400760059 /* HeroesListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3916121C2AA85E5400760059 /* HeroesListTableViewController.xib */; };
+		391612212AA8882500760059 /* HeroesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916121F2AA8882500760059 /* HeroesDetailViewController.swift */; };
+		391612222AA8882500760059 /* HeroesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 391612202AA8882500760059 /* HeroesDetailViewController.xib */; };
 		39B015912A9D429000BD20ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B015902A9D429000BD20ED /* AppDelegate.swift */; };
 		39B015932A9D429000BD20ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B015922A9D429000BD20ED /* SceneDelegate.swift */; };
-		39B015952A9D429000BD20ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B015942A9D429000BD20ED /* ViewController.swift */; };
 		39B0159A2A9D429200BD20ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39B015992A9D429200BD20ED /* Assets.xcassets */; };
 		39B0159D2A9D429200BD20ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B0159B2A9D429200BD20ED /* LaunchScreen.storyboard */; };
 		39B015A82A9D429200BD20ED /* SuperHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B015A72A9D429200BD20ED /* SuperHeroesTests.swift */; };
@@ -37,10 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3916121B2AA85E5400760059 /* HeroesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListTableViewController.swift; sourceTree = "<group>"; };
+		3916121C2AA85E5400760059 /* HeroesListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesListTableViewController.xib; sourceTree = "<group>"; };
+		3916121F2AA8882500760059 /* HeroesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesDetailViewController.swift; sourceTree = "<group>"; };
+		391612202AA8882500760059 /* HeroesDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesDetailViewController.xib; sourceTree = "<group>"; };
 		39B0158D2A9D429000BD20ED /* SuperHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39B015902A9D429000BD20ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39B015922A9D429000BD20ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		39B015942A9D429000BD20ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		39B015992A9D429200BD20ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39B0159C2A9D429200BD20ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39B0159E2A9D429200BD20ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +87,8 @@
 		391612152AA85BC900760059 /* HeroesList */ = {
 			isa = PBXGroup;
 			children = (
+				3916121B2AA85E5400760059 /* HeroesListTableViewController.swift */,
+				3916121C2AA85E5400760059 /* HeroesListTableViewController.xib */,
 			);
 			path = HeroesList;
 			sourceTree = "<group>";
@@ -88,6 +96,8 @@
 		391612162AA85C4F00760059 /* HeroesDetail */ = {
 			isa = PBXGroup;
 			children = (
+				3916121F2AA8882500760059 /* HeroesDetailViewController.swift */,
+				391612202AA8882500760059 /* HeroesDetailViewController.xib */,
 			);
 			path = HeroesDetail;
 			sourceTree = "<group>";
@@ -115,12 +125,11 @@
 		39B0158F2A9D429000BD20ED /* SuperHeroes */ = {
 			isa = PBXGroup;
 			children = (
-				391612162AA85C4F00760059 /* HeroesDetail */,
-				391612152AA85BC900760059 /* HeroesList */,
 				39EAE64F2A9E55D200C9AEDD /* Login */,
+				391612152AA85BC900760059 /* HeroesList */,
+				391612162AA85C4F00760059 /* HeroesDetail */,
 				39B015902A9D429000BD20ED /* AppDelegate.swift */,
 				39B015922A9D429000BD20ED /* SceneDelegate.swift */,
-				39B015942A9D429000BD20ED /* ViewController.swift */,
 				39B015992A9D429200BD20ED /* Assets.xcassets */,
 				39B0159B2A9D429200BD20ED /* LaunchScreen.storyboard */,
 				39B0159E2A9D429200BD20ED /* Info.plist */,
@@ -259,6 +268,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				39B0159D2A9D429200BD20ED /* LaunchScreen.storyboard in Resources */,
+				3916121E2AA85E5400760059 /* HeroesListTableViewController.xib in Resources */,
+				391612222AA8882500760059 /* HeroesDetailViewController.xib in Resources */,
 				39B0159A2A9D429200BD20ED /* Assets.xcassets in Resources */,
 				39EAE6542A9E565C00C9AEDD /* LoginViewController.xib in Resources */,
 			);
@@ -286,7 +297,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				39EAE6532A9E565C00C9AEDD /* LoginViewController.swift in Sources */,
-				39B015952A9D429000BD20ED /* ViewController.swift in Sources */,
+				391612212AA8882500760059 /* HeroesDetailViewController.swift in Sources */,
+				3916121D2AA85E5400760059 /* HeroesListTableViewController.swift in Sources */,
 				39B015912A9D429000BD20ED /* AppDelegate.swift in Sources */,
 				39B015932A9D429000BD20ED /* SceneDelegate.swift in Sources */,
 			);
