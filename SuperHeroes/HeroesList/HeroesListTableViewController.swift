@@ -9,13 +9,13 @@ import UIKit
 
 class HeroesListTableViewController: UITableViewController {
     
-    @IBOutlet var HereosListTable: UITableView!
-    
-    var navBar: UINavigationBar = UINavigationBar()
+    @IBOutlet var HeroesListTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Heroes"
+        HeroesListTable.rowHeight = 120
+        HeroesListTable.register(UINib(nibName: HeroesCustomTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: "HeroesCell")
         
     }
 
@@ -26,20 +26,18 @@ class HeroesListTableViewController: UITableViewController {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    
-
-   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "HeroeCell")
-       // let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-       
-        // Configure the cell...
-        cell.textLabel?.text = "ok"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HeroesCell",
+                                                             for: indexPath) as? HeroesCustomTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.configure()
         return cell
     }
    
@@ -79,19 +77,12 @@ class HeroesListTableViewController: UITableViewController {
     }
     */
 
-    /*
+   
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
-     */
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath) {
         let detail = HeroesDetailViewController()
-        self.navigationController?.pushViewController(detail, animated: true)
+        self.navigationController?.show(detail, sender: true)
     }
 }
