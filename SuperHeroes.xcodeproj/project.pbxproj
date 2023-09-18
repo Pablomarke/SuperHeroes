@@ -23,6 +23,7 @@
 		39EAE6542A9E565C00C9AEDD /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39EAE6522A9E565C00C9AEDD /* LoginViewController.xib */; };
 		39F370E82AA8E087006D8383 /* HeroesCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F370E62AA8E087006D8383 /* HeroesCustomTableViewCell.swift */; };
 		39F370E92AA8E087006D8383 /* HeroesCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F370E72AA8E087006D8383 /* HeroesCustomTableViewCell.xib */; };
+		39FB515B2AB8C99A00DF7B70 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FB515A2AB8C99A00DF7B70 /* NetworkModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		39EAE6522A9E565C00C9AEDD /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		39F370E62AA8E087006D8383 /* HeroesCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesCustomTableViewCell.swift; sourceTree = "<group>"; };
 		39F370E72AA8E087006D8383 /* HeroesCustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesCustomTableViewCell.xib; sourceTree = "<group>"; };
+		39FB515A2AB8C99A00DF7B70 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				39857DE52AAA13ED00195473 /* Heroes.swift */,
+				39FB515A2AB8C99A00DF7B70 /* NetworkModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39FB515B2AB8C99A00DF7B70 /* NetworkModel.swift in Sources */,
 				39F370E82AA8E087006D8383 /* HeroesCustomTableViewCell.swift in Sources */,
 				39EAE6532A9E565C00C9AEDD /* LoginViewController.swift in Sources */,
 				391612212AA8882500760059 /* HeroesDetailViewController.swift in Sources */,

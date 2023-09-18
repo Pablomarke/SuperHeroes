@@ -8,7 +8,7 @@
 import UIKit
 
 class HeroesListTableViewController: UITableViewController {
-    
+    // MARK: - Outlets
     @IBOutlet var HeroesListTable: UITableView!
     
     override func viewDidLoad() {
