@@ -109,24 +109,10 @@ final class NetworkModel {
         request.httpMethod = "POST"
         request.httpBody = urlComponents.query?.data(using: .utf8)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard error == nil else {
-                completion(.failure( .unknown))
-                return
-            }
-            guard let data else {
-                completion(.failure( .noData))
-                return
-            }
-            
-            guard let heroes = try? JSONDecoder().decode([Hero].self, from: data) else {
-                completion(.failure( .decodingFailed))
-                return
-            }
-            completion(.success(heroes))
-        }
-        
-        task.resume()
+        createTask(
+            for: request,
+            using: [Hero].self,
+            completion: completion)
     }
    
     func getTransformations(for hero: Hero,
@@ -192,8 +178,19 @@ final class NetworkModel {
         request.httpMethod = "POST"
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.httpBody = encodeBody
+        createTask(
+            for: request,
+            using: [Transformation].self,
+            completion: completion)
+    }
+    
+    func createTask<T: Decodable>(
+        for request: URLRequest,
+        using type: T.Type,
+        completion: @escaping (Result<T, NetworkError>) -> Void
+    ){
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard error != nil else {
+            guard error == nil else {
                 completion(.failure(.unknown))
                 return
             }
@@ -203,12 +200,12 @@ final class NetworkModel {
                 return
             }
             
-            guard let transformations = try? JSONDecoder().decode([Transformation].self, from: data) else {
+            guard let resource = try? JSONDecoder().decode(type, from: data) else {
                 completion(.failure(.decodingFailed))
                 return
             }
             
-            completion(.success(transformations))
+            completion(.success(resource))
         }
         task.resume()
     }
