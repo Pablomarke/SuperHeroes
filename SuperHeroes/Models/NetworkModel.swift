@@ -19,6 +19,7 @@ final class NetworkModel {
         case statusCode(code: Int?)
         case noToken
     }
+    
     private var baseComponents: URLComponents {
         var components = URLComponents()
         components.scheme = "https"
@@ -26,7 +27,25 @@ final class NetworkModel {
         return components
     }
     
-    private var token: String?
+    private var token: String? {
+        get {
+            if let token = LocalDataModel.getToken() {
+                return token
+            }
+            return nil
+        }
+        set {
+            if let token = newValue {
+                LocalDataModel.save(token: token)
+            }
+        }
+    }
+    
+    private let session: URLSession
+    
+    init(session: URLSession = .shared) {
+        self.session = session
+    }
     
     func login(
         user: String,
@@ -85,7 +104,6 @@ final class NetworkModel {
     }
     
     func getHeroes(
-        token: String,
         completion: @escaping (Result<[Hero],
                                NetworkError>) -> Void
     ) {
@@ -96,12 +114,12 @@ final class NetworkModel {
             completion(.failure(.malformedUrl))
             return
         }
-        /*
+        
          guard let token else {
-         completion([], .noToken)
+             completion(.failure( .noToken))
          return
          }
-         */
+        
         var urlComponents = URLComponents()
         urlComponents.queryItems = [URLQueryItem(name: "name", value: "")]
         
@@ -112,7 +130,8 @@ final class NetworkModel {
         createTask(
             for: request,
             using: [Hero].self,
-            completion: completion)
+            completion: completion
+        )
     }
    
     func getTransformations(for hero: Hero,
@@ -127,7 +146,7 @@ final class NetworkModel {
             return
         }
         var urlComponents = URLComponents()
-        urlComponents.queryItems = [URLQueryItem(name: "id", value: "D13A40E5-4418-4223-9CE6-D2F9A28EBE94")]
+        urlComponents.queryItems = [URLQueryItem(name: "id", value: hero.id)]
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -154,7 +173,6 @@ final class NetworkModel {
     }
      
     func getTransformations2(for hero: Hero,
-                             token: String,
                             completion: @escaping (
                                 Result<[Transformation],
                                 NetworkError>) -> Void
@@ -189,24 +207,31 @@ final class NetworkModel {
         using type: T.Type,
         completion: @escaping (Result<T, NetworkError>) -> Void
     ){
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
+            let result: Result<T, NetworkError>
+            
+            defer {
+                completion(result)
+            }
             guard error == nil else {
-                completion(.failure(.unknown))
+                result = .failure(.unknown)
                 return
             }
             
             guard let data else {
-                completion(.failure(.noData))
+                result = .failure(.noData)
                 return
             }
             
             guard let resource = try? JSONDecoder().decode(type, from: data) else {
-                completion(.failure(.decodingFailed))
+                result = .failure(.decodingFailed)
                 return
             }
             
-            completion(.success(resource))
+            result = .success(resource)
+            
         }
+        
         task.resume()
     }
 }

@@ -13,29 +13,28 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var continueButton: UIButton!
     
+    private let model = NetworkModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
     @IBAction func continueAction(_ sender: Any) {
-        let model = NetworkModel()
-       
         model.login(
             user: userNameText.text ?? "",
             password: passwordText.text ?? ""
-        ) { result in
-            
+        ) { [weak self] result in
             switch result {
                 case let .success(token):
-                    print("Token: \(token)")
-                    model.getHeroes(token: token) {  result in
-                        switch result {
+                   // print("Token: \(token)")
+                    self?.model.getHeroes {  result in
+                        switch  result {
                             case let .success(heroes):
+                                //print("Heroes: \(heroes)")
                                 let goku = heroes[3]
-                                    model.getTransformations2(
-                                        for: goku,
-                                        token: token
+                                self?.model.getTransformations2(
+                                        for: goku
                                     ) { Result in
                                         switch result {
                                             case let .success(transformations):
@@ -45,7 +44,6 @@ class LoginViewController: UIViewController {
                                                 print("Error: \(error)")
                                         }
                                     }
-                                //print("Heroes: \(heroes)")
                             case let .failure(error):
                                 print("error \(error)")
                         }
@@ -54,10 +52,6 @@ class LoginViewController: UIViewController {
                     print("error \(error)")
             }
         }
-        
-        
-       
-        
        
         /*
         let heroesList = HeroesListTableViewController()

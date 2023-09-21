@@ -13,6 +13,8 @@
 		391612222AA8882500760059 /* HeroesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 391612202AA8882500760059 /* HeroesDetailViewController.xib */; };
 		39857DE62AAA13ED00195473 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39857DE52AAA13ED00195473 /* Hero.swift */; };
 		39867EDB2ABA0F690024132E /* GetTransformationBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39867EDA2ABA0F690024132E /* GetTransformationBody.swift */; };
+		39867EDD2ABA2B390024132E /* LocalDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39867EDC2ABA2B390024132E /* LocalDataModel.swift */; };
+		39867EDF2ABA344C0024132E /* NetworkModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39867EDE2ABA344C0024132E /* NetworkModelTests.swift */; };
 		39B015912A9D429000BD20ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B015902A9D429000BD20ED /* AppDelegate.swift */; };
 		39B015932A9D429000BD20ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B015922A9D429000BD20ED /* SceneDelegate.swift */; };
 		39B0159A2A9D429200BD20ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39B015992A9D429200BD20ED /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		391612202AA8882500760059 /* HeroesDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesDetailViewController.xib; sourceTree = "<group>"; };
 		39857DE52AAA13ED00195473 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		39867EDA2ABA0F690024132E /* GetTransformationBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransformationBody.swift; sourceTree = "<group>"; };
+		39867EDC2ABA2B390024132E /* LocalDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataModel.swift; sourceTree = "<group>"; };
+		39867EDE2ABA344C0024132E /* NetworkModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModelTests.swift; sourceTree = "<group>"; };
 		39B0158D2A9D429000BD20ED /* SuperHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39B015902A9D429000BD20ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39B015922A9D429000BD20ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 				39FB515A2AB8C99A00DF7B70 /* NetworkModel.swift */,
 				39FB515C2AB8EFC800DF7B70 /* Transformation.swift */,
 				39867EDA2ABA0F690024132E /* GetTransformationBody.swift */,
+				39867EDC2ABA2B390024132E /* LocalDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				39B015A72A9D429200BD20ED /* SuperHeroesTests.swift */,
+				39867EDE2ABA344C0024132E /* NetworkModelTests.swift */,
 			);
 			path = SuperHeroesTests;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 				39F370E82AA8E087006D8383 /* HeroesCustomTableViewCell.swift in Sources */,
 				39EAE6532A9E565C00C9AEDD /* LoginViewController.swift in Sources */,
 				391612212AA8882500760059 /* HeroesDetailViewController.swift in Sources */,
+				39867EDD2ABA2B390024132E /* LocalDataModel.swift in Sources */,
 				3916121D2AA85E5400760059 /* HeroesListTableViewController.swift in Sources */,
 				39857DE62AAA13ED00195473 /* Hero.swift in Sources */,
 				39B015912A9D429000BD20ED /* AppDelegate.swift in Sources */,
@@ -348,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39867EDF2ABA344C0024132E /* NetworkModelTests.swift in Sources */,
 				39B015A82A9D429200BD20ED /* SuperHeroesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
