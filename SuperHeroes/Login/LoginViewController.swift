@@ -22,28 +22,19 @@ class LoginViewController: UIViewController {
     
     @IBAction func continueAction(_ sender: Any) {
         model.login(
-            user: userNameText.text ?? "",
-            password: passwordText.text ?? ""
+            user: userNameText.text ?? "markedevelop@gmail.com",
+            password: passwordText.text ?? "abcd1234"
         ) { [weak self] result in
             switch result {
                 case let .success(token):
-                   // print("Token: \(token)")
                     self?.model.getHeroes {  result in
                         switch  result {
-                            case let .success(heroes):
-                                //print("Heroes: \(heroes)")
-                                let goku = heroes[3]
-                                self?.model.getTransformations2(
-                                        for: goku
-                                    ) { Result in
-                                        switch result {
-                                            case let .success(transformations):
-                                                print("---------->Transformaciones: \(transformations)")
-                                                print("-------hasta aquí")
-                                            case let .failure(error):
-                                                print("Error: \(error)")
-                                        }
-                                    }
+                            case let .success(heroes): 
+                                DispatchQueue.main.async {
+                                    let heroesList = HeroesListTableViewController(model: heroes)
+                                    self?.navigationController?.setViewControllers([heroesList],
+                                                                                animated: true)
+                                }
                             case let .failure(error):
                                 print("error \(error)")
                         }
@@ -54,9 +45,7 @@ class LoginViewController: UIViewController {
         }
        
         /*
-        let heroesList = HeroesListTableViewController()
-        self.navigationController?.setViewControllers([heroesList],
-                                                    animated: true)
+        
          }
          model.getTransformations(
              for: heroes[4]

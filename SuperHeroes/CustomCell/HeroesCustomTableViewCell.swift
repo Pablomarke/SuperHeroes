@@ -15,22 +15,21 @@ class HeroesCustomTableViewCell: UITableViewCell {
     @IBOutlet weak var heroeDescription: UILabel!
     
     static let identifier = "HeroesCustomTableViewCell"
-    
+  
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+        self.accessoryType = .disclosureIndicator
     }
     
-    //TODO
-    func configure() {
-        
-        heroeName.text = "Goku"
-        heroeDescription.text = "Aquí va la descripción"
+    func configure(with heroe: any CellRepresentable) {
+        heroeName.text = heroe.name
+        heroeDescription.text = heroe.description
     }
-    
 }
+
+protocol CellRepresentable {
+    var name: String { get }
+    var description: String { get }
+}
+
+

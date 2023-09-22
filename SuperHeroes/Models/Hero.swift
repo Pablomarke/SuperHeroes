@@ -12,6 +12,9 @@ struct Hero: Decodable {
     let favorite: Bool
 }
 
+extension Hero: CellRepresentable {
+}
+
 /*
  MARK: Decodable manual
 extension Hero: Decodable {

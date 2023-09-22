@@ -16,3 +16,7 @@ struct Transformation: Decodable {
         let id: String
     }
 }
+
+extension Transformation: CellRepresentable {
+    
+}
