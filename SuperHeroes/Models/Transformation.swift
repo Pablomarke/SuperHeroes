@@ -10,11 +10,7 @@ import Foundation
 struct Transformation: Decodable {
     let name, id, description : String
     let photo: URL
-    let hero: PreID
     
-    struct PreID: Decodable {
-        let id: String
-    }
 }
 
 extension Transformation: CellRepresentable {

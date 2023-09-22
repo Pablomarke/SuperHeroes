@@ -178,28 +178,30 @@ final class NetworkModel {
                                 NetworkError>) -> Void
     ) {
         var components = baseComponents
-        components.path = "/api/heros/transformations"
+        components.path = "/api/heros/tranformations"
         
         guard let url = components.url else {
             completion(.failure(.malformedUrl))
             return
         }
-        
-        let body = GetTransformationBody(id: hero.id)
-        
-        guard let encodeBody = try? JSONEncoder().encode(body) else {
-            completion(.failure(.encodingfailed))
+        guard let token else {
+            completion(.failure(.noToken))
             return
         }
+       
+        var urlComponents = URLComponents()
+        urlComponents.queryItems = [URLQueryItem(name: "id", value: hero.id)]
         
-       var request = URLRequest(url: url)
+        var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        request.httpBody = encodeBody
+        request.setValue("Bearer \(token)", 
+                         forHTTPHeaderField: "Authorization")
+        request.httpBody = urlComponents.query?.data(using: .utf8)
         createTask(
             for: request,
             using: [Transformation].self,
-            completion: completion)
+            completion: completion
+        )
     }
     
     func createTask<T: Decodable>(
@@ -223,7 +225,8 @@ final class NetworkModel {
                 return
             }
             
-            guard let resource = try? JSONDecoder().decode(type, from: data) else {
+            guard let resource = try? JSONDecoder().decode(type, 
+                                                           from: data) else {
                 result = .failure(.decodingFailed)
                 return
             }

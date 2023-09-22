@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,8 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroesDetailViewController" customModule="SuperHeroes" customModuleProvider="target">
             <connections>
                 <outlet property="heroeDescription" destination="VWU-7n-hda" id="cRH-Q4-Ayo"/>
+                <outlet property="heroeImage" destination="yAg-t9-ryz" id="ENK-Qh-OCn"/>
                 <outlet property="heroeName" destination="i83-GE-m9Z" id="6wc-uj-fp4"/>
-                <outlet property="horoeImage" destination="yAg-t9-ryz" id="ENK-Qh-OCn"/>
                 <outlet property="transformationsButton" destination="VVL-4o-c0P" id="QdQ-JM-fw7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -41,34 +42,23 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWU-7n-hda">
-                            <rect key="frame" x="0.0" y="160" width="393" height="180"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="180" id="Qo3-td-HY2"/>
-                            </constraints>
+                            <rect key="frame" x="0.0" y="160" width="393" height="555"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnX-oI-Je0">
-                            <rect key="frame" x="0.0" y="340" width="393" height="379"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVL-4o-c0P">
-                            <rect key="frame" x="0.0" y="719" width="393" height="40"/>
+                            <rect key="frame" x="0.0" y="715" width="393" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="KAE-Au-M2A"/>
+                                <constraint firstAttribute="height" constant="44" id="KAE-Au-M2A"/>
                             </constraints>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Transformaciones"/>
                             <connections>
                                 <action selector="transformationsAction:" destination="-1" eventType="touchUpInside" id="CvH-g8-6Ms"/>
                             </connections>
                         </button>
                     </subviews>
-                    <constraints>
-                        <constraint firstItem="VVL-4o-c0P" firstAttribute="leading" secondItem="lvG-ue-wd5" secondAttribute="leading" constant="24" id="3s2-AL-OHT"/>
-                        <constraint firstAttribute="trailing" secondItem="VVL-4o-c0P" secondAttribute="trailing" constant="24" id="Umg-l8-CgS"/>
-                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
