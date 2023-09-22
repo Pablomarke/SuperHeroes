@@ -13,5 +13,4 @@ struct Transformation: Decodable {
 }
 
 extension Transformation: HeroesAndTransformations{
-    
 }

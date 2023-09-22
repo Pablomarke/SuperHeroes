@@ -21,7 +21,10 @@ extension UIImageView {
 
     private func downloadImage(
         url: URL,
-        completion: @escaping (Result<UIImage, Error>) -> Void
+        completion: @escaping (
+            Result<UIImage,
+            Error>
+        ) -> Void
     ) {
         let task = URLSession.shared.dataTask(with: url) {  data, response, _ in
             let result: Result<UIImage, Error>

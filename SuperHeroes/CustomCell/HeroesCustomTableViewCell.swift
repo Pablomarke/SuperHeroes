@@ -21,6 +21,7 @@ class HeroesCustomTableViewCell: UITableViewCell {
         self.accessoryType = .disclosureIndicator
     }
     
+    // MARK: - Función para sincronizar modelo y vista
     func configure(with heroe: any HeroesAndTransformations) {
         heroeName.text = heroe.name
         heroeDescription.text = heroe.description
@@ -28,10 +29,5 @@ class HeroesCustomTableViewCell: UITableViewCell {
     }
 }
 
-protocol CellRepresentable {
-    var name: String { get }
-    var description: String { get }
-    var photo: URL { get }
-}
 
 

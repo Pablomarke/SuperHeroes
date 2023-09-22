@@ -21,6 +21,8 @@
 		39B0159D2A9D429200BD20ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B0159B2A9D429200BD20ED /* LaunchScreen.storyboard */; };
 		39B015A82A9D429200BD20ED /* SuperHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B015A72A9D429200BD20ED /* SuperHeroesTests.swift */; };
 		39B71C1D2ABD91AD00F9C1F5 /* UIimage+remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B71C1C2ABD91AD00F9C1F5 /* UIimage+remote.swift */; };
+		39C81A3F2ABDF03400FB20A2 /* HeroesAndTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C81A3E2ABDF03400FB20A2 /* HeroesAndTransformations.swift */; };
+		39C81A412ABDF20400FB20A2 /* CellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C81A402ABDF20400FB20A2 /* CellRepresentable.swift */; };
 		39EAE6532A9E565C00C9AEDD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EAE6512A9E565C00C9AEDD /* LoginViewController.swift */; };
 		39EAE6542A9E565C00C9AEDD /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39EAE6522A9E565C00C9AEDD /* LoginViewController.xib */; };
 		39F370E82AA8E087006D8383 /* HeroesCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F370E62AA8E087006D8383 /* HeroesCustomTableViewCell.swift */; };
@@ -57,6 +59,8 @@
 		39B015A32A9D429200BD20ED /* SuperHeroesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperHeroesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39B015A72A9D429200BD20ED /* SuperHeroesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroesTests.swift; sourceTree = "<group>"; };
 		39B71C1C2ABD91AD00F9C1F5 /* UIimage+remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+remote.swift"; sourceTree = "<group>"; };
+		39C81A3E2ABDF03400FB20A2 /* HeroesAndTransformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndTransformations.swift; sourceTree = "<group>"; };
+		39C81A402ABDF20400FB20A2 /* CellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRepresentable.swift; sourceTree = "<group>"; };
 		39EAE6512A9E565C00C9AEDD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		39EAE6522A9E565C00C9AEDD /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		39F370E62AA8E087006D8383 /* HeroesCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesCustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 		39B0158F2A9D429000BD20ED /* SuperHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				39C81A3D2ABDF00900FB20A2 /* Protocols */,
 				39B71C1B2ABD918A00F9C1F5 /* UIImage+remote */,
 				39857DE42AAA13D800195473 /* Models */,
 				39EAE64F2A9E55D200C9AEDD /* Login */,
@@ -164,6 +169,15 @@
 				39B71C1C2ABD91AD00F9C1F5 /* UIimage+remote.swift */,
 			);
 			path = "UIImage+remote";
+			sourceTree = "<group>";
+		};
+		39C81A3D2ABDF00900FB20A2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				39C81A3E2ABDF03400FB20A2 /* HeroesAndTransformations.swift */,
+				39C81A402ABDF20400FB20A2 /* CellRepresentable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		39EAE64F2A9E55D200C9AEDD /* Login */ = {
@@ -290,6 +304,7 @@
 			files = (
 				39FB515B2AB8C99A00DF7B70 /* NetworkModel.swift in Sources */,
 				39F370E82AA8E087006D8383 /* HeroesCustomTableViewCell.swift in Sources */,
+				39C81A3F2ABDF03400FB20A2 /* HeroesAndTransformations.swift in Sources */,
 				39EAE6532A9E565C00C9AEDD /* LoginViewController.swift in Sources */,
 				391612212AA8882500760059 /* HeroesDetailViewController.swift in Sources */,
 				39867EDD2ABA2B390024132E /* LocalDataModel.swift in Sources */,
@@ -299,6 +314,7 @@
 				39B015932A9D429000BD20ED /* SceneDelegate.swift in Sources */,
 				39FB515D2AB8EFC800DF7B70 /* Transformation.swift in Sources */,
 				39867EDB2ABA0F690024132E /* GetTransformationBody.swift in Sources */,
+				39C81A412ABDF20400FB20A2 /* CellRepresentable.swift in Sources */,
 				39B71C1D2ABD91AD00F9C1F5 /* UIimage+remote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

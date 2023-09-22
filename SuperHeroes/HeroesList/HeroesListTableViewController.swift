@@ -12,14 +12,15 @@ class HeroesListTableViewController: UITableViewController {
     // MARK: - Outlets
     @IBOutlet var HeroesListTable: UITableView!
     
+    // MARK: - Init
     var model: [HeroesAndTransformations]
     
     init(model: [HeroesAndTransformations]) {
         self.model = model
         super.init(nibName: nil,
                    bundle: nil)
-        
     }
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -74,11 +75,4 @@ class HeroesListTableViewController: UITableViewController {
         self.navigationController?.show(detail,
                                         sender: true)
     }
-}
-
-protocol HeroesAndTransformations {
-    var name: String { get }
-    var description: String { get }
-    var id: String { get }
-    var photo: URL { get }
 }

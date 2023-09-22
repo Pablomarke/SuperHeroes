@@ -66,12 +66,11 @@ final class NetworkModelTests: XCTestCase {
             XCTAssertEqual(token, expectedToken)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 1)
     }
 }
 
-// OHHTTPStubs
+// MARK: - Mock
 final class MockURLProtocol: URLProtocol {
     static var error: NetworkModel.NetworkError?
     static var requestHandler: ((URLRequest) throws -> (HTTPURLResponse, Data))?
@@ -104,6 +103,5 @@ final class MockURLProtocol: URLProtocol {
             client?.urlProtocol(self, didFailWithError: error)
         }
     }
-    
     override func stopLoading() { }
 }

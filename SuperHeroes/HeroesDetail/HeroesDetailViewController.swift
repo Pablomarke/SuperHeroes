@@ -13,14 +13,16 @@ class HeroesDetailViewController: UIViewController {
     @IBOutlet weak var heroeImage: UIImageView!
     @IBOutlet weak var heroeName: UILabel!
     @IBOutlet weak var heroeDescription: UILabel!
+    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var transformationsButton: UIButton!
     
+    // MARK: - Init
     var model: HeroesAndTransformations
     var modelTransformations: [HeroesAndTransformations] = []
     
     init( model: HeroesAndTransformations) {
         self.model = model
-        super.init(nibName: nil, 
+        super.init(nibName: nil,
                    bundle: nil)
         
     }
@@ -30,14 +32,16 @@ class HeroesDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         heroeDescription.sizeToFit()
         DispatchQueue.main.async {
             self.syncModelwithView()
             self.transformationsButton.isHidden = true
-            NetworkModel().getTransformations2(
-                for: self.model 
+            self.transformationsButton.isHidden = true
+            NetworkModel().getTransformations(
+                for: self.model
             ) {  result in
                 switch result {
                     case let .success(transformations):
@@ -45,26 +49,25 @@ class HeroesDetailViewController: UIViewController {
                             self.modelTransformations.append(contentsOf: transformations)
                             if self.modelTransformations.count > 0 {
                                 self.transformationsButton.isHidden = false
+                                self.bottomView.isHidden = false
                             }
                         }
                     case let .failure(error):
                         print("\(error)")
-                        
                 }
             }
         }
-       
     }
     
     // MARK: - Navigation
     @IBAction func transformationsAction(_ sender: Any) {
-        
         let navigationToTransforms = HeroesListTableViewController(model: modelTransformations)
         self.navigationController?.show(navigationToTransforms,
                                         sender: nil)
     }
 }
 
+// MARK: - Extensiones
 extension HeroesDetailViewController {
     func syncModelwithView (){
         self.title = model.name

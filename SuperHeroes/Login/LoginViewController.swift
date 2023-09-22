@@ -15,11 +15,12 @@ class LoginViewController: UIViewController {
     
     private let model = NetworkModel()
     
+    // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
+    // MARK: - Boton
     @IBAction func continueAction(_ sender: Any) {
         model.login(
             user: userNameText.text ?? "",

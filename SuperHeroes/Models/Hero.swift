@@ -15,8 +15,9 @@ struct Hero: Decodable {
 
 extension Hero: HeroesAndTransformations{
 }
+
 /*
- MARK: Decodable manual
+ MARK: Decodable manual (Apuntes)
 extension Hero: Decodable {
     enum CodingKeys: String, CodingKey {
         case photo
