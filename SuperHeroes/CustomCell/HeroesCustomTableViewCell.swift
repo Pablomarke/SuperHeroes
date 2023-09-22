@@ -21,7 +21,7 @@ class HeroesCustomTableViewCell: UITableViewCell {
         self.accessoryType = .disclosureIndicator
     }
     
-    func configure(with heroe: any CellRepresentable) {
+    func configure(with heroe: any HeroesAndTransformations) {
         heroeName.text = heroe.name
         heroeDescription.text = heroe.description
         heroeImage.setImage(for: heroe.photo)

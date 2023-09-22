@@ -12,15 +12,15 @@ class HeroesListTableViewController: UITableViewController {
     // MARK: - Outlets
     @IBOutlet var HeroesListTable: UITableView!
     
-    var model: [Hero]
+    var model: [HeroesAndTransformations]
     
-    init(model: [Hero]) {
+    init(model: [HeroesAndTransformations]) {
         self.model = model
         super.init(nibName: nil,
                    bundle: nil)
         
     }
-    
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -28,6 +28,7 @@ class HeroesListTableViewController: UITableViewController {
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Heroes"
         HeroesListTable.rowHeight = 120
         HeroesListTable.register(UINib(
@@ -67,9 +68,17 @@ class HeroesListTableViewController: UITableViewController {
     // MARK: - Navigation
     override func tableView(
         _ tableView: UITableView,
-        didSelectRowAt indexPath: IndexPath) 
-    {
-        let detail = HeroesDetailViewController()
-        self.navigationController?.show(detail, sender: true)
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        let detail = HeroesDetailViewController(model: model[indexPath.row])
+        self.navigationController?.show(detail,
+                                        sender: true)
     }
+}
+
+protocol HeroesAndTransformations {
+    var name: String { get }
+    var description: String { get }
+    var id: String { get }
+    var photo: URL { get }
 }

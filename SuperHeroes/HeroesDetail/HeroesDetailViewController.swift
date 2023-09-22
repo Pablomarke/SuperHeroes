@@ -15,9 +15,10 @@ class HeroesDetailViewController: UIViewController {
     @IBOutlet weak var heroeDescription: UILabel!
     @IBOutlet weak var transformationsButton: UIButton!
     
-    var model: Hero
+    var model: HeroesAndTransformations
+    var modelTransformations: [HeroesAndTransformations] = []
     
-    init( model: Hero) {
+    init( model: HeroesAndTransformations) {
         self.model = model
         super.init(nibName: nil, 
                    bundle: nil)
@@ -31,18 +32,20 @@ class HeroesDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        heroeDescription.sizeToFit()
         DispatchQueue.main.async {
             self.syncModelwithView()
             self.transformationsButton.isHidden = true
             NetworkModel().getTransformations2(
-                for: self.model
+                for: self.model 
             ) {  result in
                 switch result {
                     case let .success(transformations):
                         DispatchQueue.main.async {
-                            print("ok! \(transformations)")
-                            self.transformationsButton.isHidden = false
+                            self.modelTransformations.append(contentsOf: transformations)
+                            if self.modelTransformations.count > 0 {
+                                self.transformationsButton.isHidden = false
+                            }
                         }
                     case let .failure(error):
                         print("\(error)")
@@ -50,12 +53,16 @@ class HeroesDetailViewController: UIViewController {
                 }
             }
         }
-    }
-    // MARK: - Navigation
-    @IBAction func transformationsAction(_ sender: Any) {
-        let transformationTable = HeroesListTableViewController(model: [Transformation])
+       
     }
     
+    // MARK: - Navigation
+    @IBAction func transformationsAction(_ sender: Any) {
+        
+        let navigationToTransforms = HeroesListTableViewController(model: modelTransformations)
+        self.navigationController?.show(navigationToTransforms,
+                                        sender: nil)
+    }
 }
 
 extension HeroesDetailViewController {

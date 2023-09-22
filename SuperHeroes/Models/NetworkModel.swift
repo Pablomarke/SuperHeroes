@@ -172,7 +172,7 @@ final class NetworkModel {
         task.resume()
     }
      
-    func getTransformations2(for hero: Hero,
+    func getTransformations2(for hero: HeroesAndTransformations,
                             completion: @escaping (
                                 Result<[Transformation],
                                 NetworkError>) -> Void

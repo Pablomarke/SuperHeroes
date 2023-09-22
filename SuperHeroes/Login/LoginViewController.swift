@@ -43,21 +43,5 @@ class LoginViewController: UIViewController {
                     print("error \(error)")
             }
         }
-       
-        /*
-        
-         }
-         model.getTransformations(
-             for: heroes[4]
-         ) { result in
-             
-             switch result {
-                 case let .success(transformations):
-                     print("Aquí !! \(transformations)")
-                 case let .failure(error):
-                     print("Mi error es \(error)")
-             }
-         }
-         */
     }
 }

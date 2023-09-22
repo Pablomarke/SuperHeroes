@@ -10,9 +10,8 @@ import Foundation
 struct Transformation: Decodable {
     let name, id, description : String
     let photo: URL
-    
 }
 
-extension Transformation: CellRepresentable {
+extension Transformation: HeroesAndTransformations{
     
 }
