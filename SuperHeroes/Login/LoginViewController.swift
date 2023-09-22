@@ -22,8 +22,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func continueAction(_ sender: Any) {
         model.login(
-            user: userNameText.text ?? "markedevelop@gmail.com",
-            password: passwordText.text ?? "abcd1234"
+            user: userNameText.text ?? "",
+            password: passwordText.text ?? ""
         ) { [weak self] result in
             switch result {
                 case let .success(token):

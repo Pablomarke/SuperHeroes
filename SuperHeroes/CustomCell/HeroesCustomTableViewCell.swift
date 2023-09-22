@@ -24,12 +24,14 @@ class HeroesCustomTableViewCell: UITableViewCell {
     func configure(with heroe: any CellRepresentable) {
         heroeName.text = heroe.name
         heroeDescription.text = heroe.description
+        heroeImage.setImage(for: heroe.photo)
     }
 }
 
 protocol CellRepresentable {
     var name: String { get }
     var description: String { get }
+    var photo: URL { get }
 }
 
 
