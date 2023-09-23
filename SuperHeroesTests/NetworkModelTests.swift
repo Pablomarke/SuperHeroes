@@ -4,7 +4,6 @@
 //
 //  Created by Pablo Márquez Marín on 19/9/23.
 //
-
 import XCTest
 @testable import SuperHeroes
 
@@ -25,7 +24,7 @@ final class NetworkModelTests: XCTestCase {
     }
     
     func testLogin() {
-        let expectedToken = "Some Token"
+        let expectedToken = "SomeToken"
         let someUser = "SomeUser"
         let somePassword = "SomePassword"
         
@@ -60,6 +59,7 @@ final class NetworkModelTests: XCTestCase {
         ) { result in
             guard case let .success(token) = result else {
                 XCTFail("Expected success but received \(result)")
+                
                 return
             }
             
@@ -70,7 +70,7 @@ final class NetworkModelTests: XCTestCase {
     }
 }
 
-// MARK: - Mock
+
 final class MockURLProtocol: URLProtocol {
     static var error: NetworkModel.NetworkError?
     static var requestHandler: ((URLRequest) throws -> (HTTPURLResponse, Data))?

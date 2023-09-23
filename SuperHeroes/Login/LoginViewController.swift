@@ -32,9 +32,7 @@ class LoginViewController: UIViewController {
                         switch  result {
                             case let .success(heroes): 
                                 DispatchQueue.main.async {
-                                    let heroesList = HeroesListTableViewController(model: heroes)
-                                    self?.navigationController?.setViewControllers([heroesList],
-                                                                                animated: true)
+                                    self?.navigationHeroes(heroes: heroes)
                                 }
                             case let .failure(error):
                                 print("error \(error)")
@@ -44,5 +42,12 @@ class LoginViewController: UIViewController {
                     print("error \(error)")
             }
         }
+    }
+}
+extension LoginViewController {
+    func navigationHeroes(heroes: [Hero] ) {
+            let heroesList = HeroesListTableViewController(model: heroes)
+            self.navigationController?.setViewControllers([heroesList],
+                                                        animated: true)
     }
 }
