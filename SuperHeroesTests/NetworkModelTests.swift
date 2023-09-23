@@ -4,6 +4,7 @@
 //
 //  Created by Pablo Márquez Marín on 19/9/23.
 //
+
 import XCTest
 @testable import SuperHeroes
 
@@ -22,14 +23,46 @@ final class NetworkModelTests: XCTestCase {
         super.tearDown()
         sut = nil
     }
-    
-    func testLogin() {
-        let expectedToken = "SomeToken"
+    // GIVEN WHEN THEN
+    func testGivenOkCredentialsWhenLoginThenSuccess() throws {
         let someUser = "SomeUser"
         let somePassword = "SomePassword"
+        let expectedToken = "SomeToken"
         
+        createRequest(credentials: .init(user: someUser,
+                                         password: somePassword),
+                      expectedToken: expectedToken)
+       
+        let expectation = expectation(description: "Login success")
+        var output: String?
+        sut.login(
+            user: someUser,
+            password: somePassword
+        ) { result in
+            guard case let .success(token) = result else {
+                XCTFail("Expected success but received \(result)")
+                return
+            }
+            output = token
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 1)
+        let outputResult: String = try XCTUnwrap(output)
+        XCTAssertEqual(outputResult, expectedToken)
+    }
+}
+
+private extension NetworkModelTests {
+    
+    struct Credentials {
+        let user: String
+        let password: String
+    }
+    
+    func createRequest(credentials: Credentials, expectedToken: String) {
         MockURLProtocol.requestHandler = { request in
-            let loginString = String(format: "%@:%@", someUser, somePassword)
+            let loginString = String(format: "%@:%@", credentials.user, credentials.password)
             let loginData = loginString.data(using: .utf8)!
             let base64LogingString = loginData.base64EncodedString()
             
@@ -50,27 +83,10 @@ final class NetworkModelTests: XCTestCase {
             )
             return (response, data)
         }
-        
-        let expectation = expectation(description: "Login success")
-        
-        sut.login(
-            user: someUser,
-            password: somePassword
-        ) { result in
-            guard case let .success(token) = result else {
-                XCTFail("Expected success but received \(result)")
-                
-                return
-            }
-            
-            XCTAssertEqual(token, expectedToken)
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 1)
     }
 }
 
-
+// OHHTTPStubs
 final class MockURLProtocol: URLProtocol {
     static var error: NetworkModel.NetworkError?
     static var requestHandler: ((URLRequest) throws -> (HTTPURLResponse, Data))?
@@ -103,5 +119,6 @@ final class MockURLProtocol: URLProtocol {
             client?.urlProtocol(self, didFailWithError: error)
         }
     }
+    
     override func stopLoading() { }
 }

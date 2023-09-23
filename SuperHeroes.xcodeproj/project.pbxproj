@@ -138,9 +138,9 @@
 		39B0158F2A9D429000BD20ED /* SuperHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				39857DE42AAA13D800195473 /* Models */,
 				39C81A3D2ABDF00900FB20A2 /* Protocols */,
 				39B71C1B2ABD918A00F9C1F5 /* UIImage+remote */,
-				39857DE42AAA13D800195473 /* Models */,
 				39EAE64F2A9E55D200C9AEDD /* Login */,
 				391612152AA85BC900760059 /* HeroesList */,
 				391612162AA85C4F00760059 /* HeroesDetail */,
