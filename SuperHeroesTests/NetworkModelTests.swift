@@ -60,13 +60,19 @@ private extension NetworkModelTests {
         let password: String
     }
     
-    func createRequest(credentials: Credentials, expectedToken: String) {
+    func createRequest(
+        credentials: Credentials,
+        expectedToken: String
+    ) {
         MockURLProtocol.requestHandler = { request in
-            let loginString = String(format: "%@:%@", credentials.user, credentials.password)
+            let loginString = String(format: "%@:%@", 
+                                     credentials.user,
+                                     credentials.password)
             let loginData = loginString.data(using: .utf8)!
             let base64LogingString = loginData.base64EncodedString()
             
-            XCTAssertEqual(request.httpMethod, "POST")
+            XCTAssertEqual(request.httpMethod, 
+                           "POST")
             XCTAssertEqual(
                 request.value(forHTTPHeaderField: "Authorization"),
                 "Basic \(base64LogingString)"
@@ -112,13 +118,14 @@ final class MockURLProtocol: URLProtocol {
         
         do {
             let (response, data) = try handler(request)
-            client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+            client?.urlProtocol(self, didReceive: response, 
+                                cacheStoragePolicy: .notAllowed)
             client?.urlProtocol(self, didLoad: data)
             client?.urlProtocolDidFinishLoading(self)
         } catch {
-            client?.urlProtocol(self, didFailWithError: error)
+            client?.urlProtocol(self, 
+                                didFailWithError: error)
         }
     }
-    
     override func stopLoading() { }
 }

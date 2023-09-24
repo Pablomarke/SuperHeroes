@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    // MARK: - Boton
+    // MARK: - Botón
     @IBAction func continueAction(_ sender: Any) {
         model.login(
             user: userNameText.text ?? "",
