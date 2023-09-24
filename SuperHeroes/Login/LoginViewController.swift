@@ -13,11 +13,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var continueButton: UIButton!
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     private let model = NetworkModel()
     
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundImage.image = UIImage(named: "fondo4")
+        backgroundImage.contentMode = .scaleAspectFill
+    
     }
     
     // MARK: - Botón
@@ -40,6 +44,8 @@ class LoginViewController: UIViewController {
                     }
                 case let .failure(error):
                     print("error \(error)")
+                    self?.showError(textField: self?.userNameText)
+                    self?.showError(textField: self?.passwordText)
             }
         }
     }
@@ -49,5 +55,15 @@ extension LoginViewController {
             let heroesList = HeroesListTableViewController(model: heroes)
             self.navigationController?.setViewControllers([heroesList],
                                                         animated: true)
+    }
+}
+
+extension LoginViewController {
+    func showError(textField: UITextField?){
+        DispatchQueue.main.async {
+            textField?.placeholder = "Usuario o contraseña Incorrectos"
+            textField?.text = ""
+            textField?.backgroundColor = .red
+        }
     }
 }

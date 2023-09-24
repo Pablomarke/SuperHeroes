@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="SuperHeroes" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundImage" destination="GYO-IF-HNb" id="gB1-At-4Br"/>
                 <outlet property="continueButton" destination="sKz-xN-o6L" id="vOX-1z-2KO"/>
                 <outlet property="passwordText" destination="qHn-7V-ocW" id="Lig-Th-i4F"/>
                 <outlet property="userNameText" destination="6OI-YI-XMH" id="yl1-py-Ywu"/>
@@ -21,6 +23,9 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GYO-IF-HNb">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GS7-gq-HLE">
                     <rect key="frame" x="12" y="340" width="369" height="172"/>
                     <subviews>
@@ -64,9 +69,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GYO-IF-HNb" secondAttribute="trailing" id="6Ak-Kh-zfO"/>
+                <constraint firstAttribute="bottom" secondItem="GYO-IF-HNb" secondAttribute="bottom" id="864-ah-d8S"/>
+                <constraint firstItem="GYO-IF-HNb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Jqe-bn-vZ3"/>
                 <constraint firstItem="GS7-gq-HLE" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="UIz-N2-kvh"/>
                 <constraint firstItem="GS7-gq-HLE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="ptg-TE-Gai"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GS7-gq-HLE" secondAttribute="trailing" constant="12" id="sEF-8B-vw9"/>
+                <constraint firstItem="GYO-IF-HNb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vqw-5A-6zv"/>
             </constraints>
             <point key="canvasLocation" x="55" y="-11"/>
         </view>
