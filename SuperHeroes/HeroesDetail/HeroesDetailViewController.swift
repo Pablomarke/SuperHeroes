@@ -12,9 +12,9 @@ class HeroesDetailViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var heroeImage: UIImageView!
     @IBOutlet weak var heroeName: UILabel!
-    @IBOutlet weak var heroeDescription: UILabel!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var transformationsButton: UIButton!
+    @IBOutlet weak var heroesDescriptionText: UITextView!
     
     // MARK: - Init
     var model: HeroesAndTransformations
@@ -24,7 +24,6 @@ class HeroesDetailViewController: UIViewController {
         self.model = model
         super.init(nibName: nil,
                    bundle: nil)
-        
     }
     
     @available(*, unavailable)
@@ -35,7 +34,7 @@ class HeroesDetailViewController: UIViewController {
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        heroeDescription.sizeToFit()
+        
         DispatchQueue.main.async {
             self.syncModelwithView()
             self.transformationsButton.isHidden = true
@@ -73,6 +72,6 @@ extension HeroesDetailViewController {
         self.title = model.name
         heroeImage.setImage(for: model.photo)
         heroeName.text = model.name
-        heroeDescription.text = model.description
+        heroesDescriptionText.text = model.description
     }
 }
