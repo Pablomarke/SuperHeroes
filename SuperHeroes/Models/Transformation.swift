@@ -13,4 +13,8 @@ struct Transformation: Decodable {
 }
 
 extension Transformation: HeroesAndTransformations{
+    var favorite: Bool {
+        return false
+    }
+    
 }

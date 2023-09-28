@@ -29,7 +29,7 @@ class HeroesListTableViewController: UITableViewController {
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        HeroesListTable.separatorStyle = .none
         self.title = "Heroes"
         HeroesListTable.rowHeight = 120
         HeroesListTable.register(UINib(

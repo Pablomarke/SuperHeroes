@@ -15,6 +15,7 @@ class HeroesDetailViewController: UIViewController {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var transformationsButton: UIButton!
     @IBOutlet weak var heroesDescriptionText: UITextView!
+    @IBOutlet weak var favoriteImage: UIImageView!
     
     // MARK: - Init
     var model: HeroesAndTransformations
@@ -37,7 +38,6 @@ class HeroesDetailViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.syncModelwithView()
-            self.transformationsButton.isHidden = true
             self.transformationsButton.isHidden = true
             NetworkModel().getTransformations(
                 for: self.model
@@ -73,5 +73,11 @@ extension HeroesDetailViewController {
         heroeImage.setImage(for: model.photo)
         heroeName.text = model.name
         heroesDescriptionText.text = model.description
+        if model.favorite == true {
+            favoriteImage.image = UIImage(systemName: "star.fill")
+        } else {
+            favoriteImage.image = UIImage(systemName: "star")
+        }
     }
+    
 }

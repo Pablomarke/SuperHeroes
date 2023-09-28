@@ -12,4 +12,5 @@ protocol HeroesAndTransformations {
     var description: String { get }
     var id: String { get }
     var photo: URL { get }
+    var favorite: Bool { get }
 }
