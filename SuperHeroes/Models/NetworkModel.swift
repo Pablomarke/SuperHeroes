@@ -19,6 +19,7 @@ final class NetworkModel {
         case noData
         case statusCode(code: Int?)
         case noToken
+        case httpError
     }
     
     // MARK: Componentes y Token
@@ -174,6 +175,63 @@ final class NetworkModel {
             completion: completion
         )
     }
+    
+    // MARK: Función para marcar favoritos
+    func heroeFavorite(
+        id: String,
+        completion: @escaping (
+            Result<Void,
+            NetworkError>) -> Void
+    ) {
+        var components = baseComponents
+        components.path = "/api/data/herolike"
+        
+        guard let url = components.url else {
+            completion(.failure(.malformedUrl))
+            return
+        }
+        
+         guard let token else {
+             completion(.failure( .noToken))
+             return
+         }
+        
+        var urlComponents = URLComponents()
+        urlComponents.queryItems = [URLQueryItem(name: "hero",
+                                                 value: id)]
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = urlComponents.query?.data(using: .utf8)
+        request.setValue("Bearer \(token)",
+                         forHTTPHeaderField: "Authorization")
+        
+        let task = session.dataTask(with: request) { _, response, error in
+            var result: Result<Void, NetworkError>
+            
+            defer {
+                        completion(result)
+                    }
+            
+            guard error == nil else {
+                result = .failure(.unknown)
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                       switch httpResponse.statusCode {
+                       case 201:
+                           result = .success(())
+                       default:
+                           result = .failure(.httpError)
+                       }
+                   } else {
+                       result = .failure(.unknown)
+                   }
+            result = .success(())
+        }
+        task.resume()
+    }
+    
     
     // MARK: Función para task
     func createTask<T: Decodable>(

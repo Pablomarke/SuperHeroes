@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroesDetailViewController" customModule="SuperHeroes" customModuleProvider="target">
             <connections>
                 <outlet property="bottomView" destination="9FL-C1-CBL" id="Kvp-F5-sc1"/>
-                <outlet property="favoriteImage" destination="ass-RU-YTn" id="ccx-Bp-a8T"/>
+                <outlet property="favoriteImageButton" destination="gaO-pJ-QgB" id="MBr-gm-6Bi"/>
                 <outlet property="heroeImage" destination="yAg-t9-ryz" id="ENK-Qh-OCn"/>
                 <outlet property="heroeName" destination="i83-GE-m9Z" id="6wc-uj-fp4"/>
                 <outlet property="heroesDescriptionText" destination="EYg-1d-kLB" id="7oG-8q-Tgl"/>
@@ -38,7 +38,7 @@
                             <rect key="frame" x="0.0" y="240" width="369" height="56"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i83-GE-m9Z">
-                                    <rect key="frame" x="0.0" y="0.0" width="313" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="321" height="56"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="56" id="4nw-Ek-vhz"/>
                                     </constraints>
@@ -46,13 +46,18 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sta" translatesAutoresizingMaskIntoConstraints="NO" id="ass-RU-YTn">
-                                    <rect key="frame" x="313" y="0.0" width="56" height="56"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaO-pJ-QgB">
+                                    <rect key="frame" x="321" y="0.0" width="48" height="56"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="56" id="PgC-RO-2Oq"/>
-                                        <constraint firstAttribute="width" constant="56" id="mBb-wc-4Vf"/>
+                                        <constraint firstAttribute="height" constant="56" id="2lX-xl-kNc"/>
+                                        <constraint firstAttribute="width" constant="48" id="Rse-e8-qUm"/>
                                     </constraints>
-                                </imageView>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain"/>
+                                    <connections>
+                                        <action selector="favoriteAction:" destination="-1" eventType="touchUpInside" id="hlZ-zy-SzF"/>
+                                    </connections>
+                                </button>
                             </subviews>
                         </stackView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EYg-1d-kLB">
@@ -96,7 +101,6 @@
         </view>
     </objects>
     <resources>
-        <image name="sta" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

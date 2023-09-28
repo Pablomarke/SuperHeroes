@@ -139,11 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				39857DE42AAA13D800195473 /* Models */,
+				39BA256B2AC59D5D003B2C9E /* Views+controller */,
 				39C81A3D2ABDF00900FB20A2 /* Protocols */,
 				39B71C1B2ABD918A00F9C1F5 /* UIImage+remote */,
-				39EAE64F2A9E55D200C9AEDD /* Login */,
-				391612152AA85BC900760059 /* HeroesList */,
-				391612162AA85C4F00760059 /* HeroesDetail */,
 				39F370E52AA8E04C006D8383 /* CustomCell */,
 				39B015902A9D429000BD20ED /* AppDelegate.swift */,
 				39B015922A9D429000BD20ED /* SceneDelegate.swift */,
@@ -169,6 +167,16 @@
 				39B71C1C2ABD91AD00F9C1F5 /* UIimage+remote.swift */,
 			);
 			path = "UIImage+remote";
+			sourceTree = "<group>";
+		};
+		39BA256B2AC59D5D003B2C9E /* Views+controller */ = {
+			isa = PBXGroup;
+			children = (
+				39EAE64F2A9E55D200C9AEDD /* Login */,
+				391612152AA85BC900760059 /* HeroesList */,
+				391612162AA85C4F00760059 /* HeroesDetail */,
+			);
+			path = "Views+controller";
 			sourceTree = "<group>";
 		};
 		39C81A3D2ABDF00900FB20A2 /* Protocols */ = {
