@@ -16,6 +16,7 @@ class HeroesDetailViewController: UIViewController {
     @IBOutlet weak var transformationsButton: UIButton!
     @IBOutlet weak var heroesDescriptionText: UITextView!
     @IBOutlet weak var favoriteImageButton: UIButton!
+    
     // MARK: - Init
     var model: HeroesAndTransformations
     var modelTransformations: [HeroesAndTransformations] = []
@@ -37,6 +38,7 @@ class HeroesDetailViewController: UIViewController {
         super.viewDidLoad()
         DispatchQueue.main.async {
             self.syncModelwithView()
+            self.hiddenFavoriteButton()
             self.transformationsButton.isHidden = true
             self.conect.getTransformations(
                 for: self.model
@@ -62,18 +64,20 @@ class HeroesDetailViewController: UIViewController {
             switch result {
                 case .success(_):
                     DispatchQueue.main.async {
-                        self.favoriteImageButton.setImage(UIImage(systemName: "star.fill"), for: .normal) 
+                        self.favoriteImageButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
                     }
                 case let .failure(error):
                     print("error: \(error)")
             }
         }
     }
+    
     // MARK: - Navigation
     @IBAction func transformationsAction(_ sender: Any) {
         let navigationToTransforms = HeroesListTableViewController(model: modelTransformations)
         self.navigationController?.show(navigationToTransforms,
                                         sender: nil)
+        
     }
 }
 
@@ -84,6 +88,17 @@ extension HeroesDetailViewController {
         heroeImage.setImage(for: model.photo)
         heroeName.text = model.name
         heroesDescriptionText.text = model.description
+        isFavorite()
+    }
+    
+    func hiddenFavoriteButton() {
+        let myType = type(of: model)
+        if myType == Transformation.self {
+            self.favoriteImageButton.isHidden = true
+        }
+    }
+    
+    func isFavorite() {
         if model.favorite == true {
             self.favoriteImageButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         } else if model.favorite == false {
