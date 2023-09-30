@@ -13,6 +13,7 @@ class HeroesCustomTableViewCell: UITableViewCell {
     @IBOutlet weak var heroeImage: UIImageView!
     @IBOutlet weak var heroeName: UILabel!
     @IBOutlet weak var heroeDescription: UILabel!
+    @IBOutlet weak var fav: UIImageView!
     
     static let identifier = "HeroesCustomTableViewCell"
   
@@ -26,6 +27,9 @@ class HeroesCustomTableViewCell: UITableViewCell {
         heroeName.text = heroe.name
         heroeDescription.text = heroe.description
         heroeImage.setImage(for: heroe.photo)
+        if heroe.favorite {
+            fav.image = UIImage(systemName: "star.fill")
+        }
     }
 }
 

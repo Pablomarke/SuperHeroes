@@ -25,7 +25,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMK-Cs-nS1">
-                        <rect key="frame" x="186" y="6" width="180" height="24"/>
+                        <rect key="frame" x="186" y="6" width="164" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="oyU-ED-Aat"/>
                         </constraints>
@@ -39,6 +39,13 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ILV-0E-eO7">
+                        <rect key="frame" x="351" y="6" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="kss-UC-vwk"/>
+                            <constraint firstAttribute="width" constant="24" id="qVp-4q-57O"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Khz-Zf-cJK" secondAttribute="trailing" constant="24" id="9fa-cL-Mdo"/>
@@ -48,19 +55,22 @@
                     <constraint firstItem="Khz-Zf-cJK" firstAttribute="top" secondItem="RMK-Cs-nS1" secondAttribute="bottom" constant="8" id="GpY-zc-Iqg"/>
                     <constraint firstAttribute="bottom" secondItem="v5w-Nz-02q" secondAttribute="bottom" id="I7z-MQ-ySN"/>
                     <constraint firstItem="RMK-Cs-nS1" firstAttribute="leading" secondItem="v5w-Nz-02q" secondAttribute="trailing" constant="6" id="P5i-EP-btm"/>
-                    <constraint firstAttribute="trailing" secondItem="RMK-Cs-nS1" secondAttribute="trailing" constant="24" id="aNT-9Q-nZs"/>
+                    <constraint firstItem="ILV-0E-eO7" firstAttribute="leading" secondItem="RMK-Cs-nS1" secondAttribute="trailing" constant="1" id="RBO-73-Uub"/>
+                    <constraint firstAttribute="trailing" secondItem="RMK-Cs-nS1" secondAttribute="trailing" constant="40" id="aNT-9Q-nZs"/>
                     <constraint firstItem="v5w-Nz-02q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jZk-PK-QCR"/>
+                    <constraint firstItem="ILV-0E-eO7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="sKy-PZ-8QY"/>
                     <constraint firstItem="v5w-Nz-02q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uo5-BK-6WS"/>
                     <constraint firstItem="RMK-Cs-nS1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="yeU-9y-xzP"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="fav" destination="ILV-0E-eO7" id="zQ4-un-Vpg"/>
                 <outlet property="heroeDescription" destination="Khz-Zf-cJK" id="7gB-q9-bgS"/>
                 <outlet property="heroeImage" destination="v5w-Nz-02q" id="mOE-hg-d9r"/>
                 <outlet property="heroeName" destination="RMK-Cs-nS1" id="s8l-gG-Mgi"/>
             </connections>
-            <point key="canvasLocation" x="169.46564885496181" y="14.084507042253522"/>
+            <point key="canvasLocation" x="167.93893129770993" y="14.084507042253522"/>
         </tableViewCell>
     </objects>
 </document>
